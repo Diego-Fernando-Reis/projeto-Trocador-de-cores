@@ -5,19 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trocador de Cores</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body{
+            height: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .header{
+            width: 100%;
+            background-color: white;
+            padding: 10px 30px;
+            font-weight: bolder;
+        }
+        .corpo{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .corpo p{
+            background-color: white;
+            font-weight: bolder;
+            padding: 10px 50px;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+        button{
+            border: 4px solid white;
+            padding: 15px 30px;
+            margin-top: 10px;
+            color: white;
+            cursor: pointer;
+            
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <p>Color Flipper</p>
     </div>
     <div class="corpo">
-        <p></p>
-        <button id="btn">CLICK ME</button>
+        <p id="background"></p>
+        <button class="button" id="btn">CLICK ME</button>
     </div>
     <script>
-        let color = ['red', 'green', 'blue', 'black', 'brown', 'gray']
+        
         btn.addEventListener('click', function(){
-            document.body.style.backgroundColor = color[i];
+            let color = ['red', 'green', 'blue', 'black', 'brown', 'gray'];
+            const i = (num) =>Math.floor(Math.random()*num);
+            cor = color[i(color.length)];
+            document.getElementById('background').innerHTML= `<p>Background-color: ${cor}</p>`;
+            document.body.style.backgroundColor = cor;
+            document.getElementById('btn').style.backgroundColor = cor;
             
         });
     </script>
